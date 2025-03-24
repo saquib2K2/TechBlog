@@ -87,7 +87,7 @@ if (user1 == null) {
 
 						<div id="profile-edit" style="display: none;">
 							<h2>Edit</h2>
-							<form action="EditServlet" method=" Post">
+							<form action="EditServlet" method="POST" enctype="multipart/form-data">
 
 
 								<table class="table">
@@ -98,15 +98,15 @@ if (user1 == null) {
 									</tr>
 									<tr>
 										<td>Email :</td>
-										<td> <input name ="userEmail" type="email" class="form-control" value="<%= user1.getEmail()%>"></td>
+										<td> <input name ="user_email" type="email" class="form-control" value="<%= user1.getEmail()%>"></td>
 									</tr>
 									<tr>
 										<td>Name :</td>
-										<td> <input name ="userName" type="text" class="form-control" value="<%= user1.getName()%>"></td>
+										<td> <input name ="user_name" type="text" class="form-control" value="<%= user1.getName()%>"></td>
 									</tr>
 									<tr>
 										<td>password :</td>
-										<td> <input name ="userpass" type="password" class="form-control" value="<%= user1.getPassword()%>"></td>
+										<td> <input name ="user_pass" type="password" class="form-control" value="<%= user1.getPassword()%>"></td>
 									</tr>
 									
 									<tr>

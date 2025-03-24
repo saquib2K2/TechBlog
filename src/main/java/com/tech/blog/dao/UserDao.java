@@ -1,8 +1,11 @@
 package com.tech.blog.dao;
 
+import java.awt.DefaultFocusTraversalPolicy;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import javax.swing.text.StyledEditorKit.BoldAction;
 
 import com.tech.blog.entities.Users;
 
@@ -84,7 +87,34 @@ public class UserDao {
 	
 	
 	
-	
+	public Boolean updateUser(Users user) {
+		
+		try {
+			
+			String qurey = "UPDATE users SET name=? , email=? , gender=? , password=? , profile=? WHERE id =?";
+			
+			PreparedStatement pstmt = con.prepareStatement(qurey);
+			pstmt.setString(1, user.getName());
+			pstmt.setString(2, user.getEmail());
+			pstmt.setString(3, user.getGender());
+			pstmt.setString(4, user.getPassword());
+			pstmt.setString(5, user.getProfile());
+			
+			pstmt.setInt(6, user.getId());
+			
+			int row =pstmt.executeUpdate();
+			
+			
+			return row >0;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+		
+		
+	}
 	
 	
 	
